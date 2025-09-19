@@ -21,14 +21,6 @@ with GigaChat(
                 role=MessagesRole.USER,
                 content='Объясни, что такое искусственный интеллект.'
             ),
-            Messages(
-                role=MessagesRole.ASSISTANT,
-                content='Искусственный интеллект -- это программы, которые могут выполнять задачи, требующие человеческого мышления.'
-            ),
-            Messages(
-                role=MessagesRole.USER,
-                content='А где он используется в жизни?'
-            ),
         ]
     )
     response = giga.chat(payload)

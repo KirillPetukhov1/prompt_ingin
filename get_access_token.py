@@ -2,6 +2,7 @@ import requests
 import uuid
 from pathlib import Path
 import logging
+from decouple import config
 
 logging.basicConfig(level=logging.INFO, 
                     filename="py_log.log", 
@@ -21,7 +22,7 @@ def get_new_access_token() -> str:
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept": "application/json",
         "RqUID": str(uuid.uuid4()),
-        "Authorization": "Basic OThhZGViNTgtN2E0Mi00YmExLTgzMTctM2YwNjFmNGI0NzNkOmM2YzYzMGJlLTczMGQtNDk3MC04MjRlLWQwZjBkZWRkM2U5Mg=="
+        "Authorization": f"Basic {config('AUTH_KEY')}"
     }
 
     data = {"scope": "GIGACHAT_API_B2B"}
